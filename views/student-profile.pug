@@ -1,0 +1,38 @@
+header
+    h2 Student #{student.name}
+    h3 Student #{student._id}
+
+
+    button(id="deleteStudent") Delete student
+
+    section
+            h2 Homeworks
+
+            if student.homeworks
+                table
+                    tr
+                        th Number
+                        th Title
+                        th Description
+                        th Date
+                    each hw in student.homeworks
+                        tr
+                            td= hw.number
+                            td= hw.title
+                            td= hw.description
+                            td= hw.date
+            else
+                span No homeworks
+
+hl
+a(href="/") Home page
+
+div(id="resultContainer")
+
+    script.
+        document.getElementById('deleteStudent').addEventListener('click', function () {
+            fetch(`/students/#{student._id}`, {method: 'DELETE'})
+                .then(response => response.text()) // Assuming the response is HTML
+                .then(html => document.getElementById('resultContainer').innerHTML = html)
+                .catch(error => { document.getElementById('resultContainer').innerHTML = error.message});
+        });

@@ -1,0 +1,19 @@
+p qty of students:
+    b= qty
+
+br
+br
+brs
+
+ul
+    each val in list
+        li #{val.name}
+            a(href=`/students/${val._id}`)   =>  Go to profile
+
+        hl
+br
+a(href="/students/new") Add new student
+br
+hl
+br
+a(href="/") Home page

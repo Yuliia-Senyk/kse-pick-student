@@ -1,0 +1,29 @@
+header
+    h2 homeworks list
+
+    if homeworks
+        table
+            tr
+                th Number
+                th Title
+                th Description
+                th Date
+            each hw in homeworks
+                tr
+                    td= hw.number
+                    td= hw.title
+                    td= hw.description
+                    td= hw.date
+    else
+        span No homeworks
+
+
+br
+a(href="/homeworks/new") Add new homework
+hl
+br
+hl
+
+a(href="/") Home page
+
+

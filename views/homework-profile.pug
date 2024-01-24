@@ -1,0 +1,30 @@
+button(id="myButton2") Click to open second template path
+
+
+div(id="resultContainer")
+br
+a(href="/") Home page
+
+    script.
+        document.getElementById('myButton1').addEventListener('click', function () {
+            fetch('/json')
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        });
+        document.getElementById('myButton2').addEventListener('click', function () {
+            fetch('/second')
+                .then(response => response.text()) // Assuming the response is HTML
+                .then(html => {
+                    document.getElementById('resultContainer').innerHTML = html;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+        document.getElementById('myButton3').addEventListener('click', function () {
+            fetch('/loop')
+                .then(response => response.text()) // Assuming the response is HTML
+                .then(html => {
+                    document.getElementById('resultContainer').innerHTML = html;
+                })
+                .catch(error => console.error('Error:', error));
+        });
