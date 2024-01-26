@@ -1,19 +1,42 @@
-p qty of students:
+p(style="font-size: 18px; color: #333;") Qty of students:
     b= qty
 
 br
-br
-brs
 
-ul
-    each val in list
-        li #{val.name}
-            a(href=`/students/${val._id}`)   =>  Go to profile
-
+ul(style="list-style-type: none;")
+    each student in students
+        li(style="margin-bottom: 10px;") #{student.name}
+            a(href=`/students/${student._id}`, style="text-decoration: none; color: #007bff;")   =>  Go to profile
         hl
 br
-a(href="/students/new") Add new student
+
+button(onclick=`pickRandomStudent(${JSON.stringify(students)})`, style="padding: 10px; background-color: #28a745; color: #fff; border: none; cursor: pointer;") Pick random
+br
+div#randomStudent(style="margin-top: 20px; display: flex; gap: 10px;")
+
+br
+a(href="/students/new", style="text-decoration: none; color: #007bff;") Add new student
 br
 hl
 br
-a(href="/") Home page
+a(href="/", style="text-decoration: none; color: #007bff;") Home page
+
+script.
+    const randomStudentDiv = document.getElementById('randomStudent');
+
+    function pickRandomStudent(students) {
+        const index = Math.floor(Math.random() * students.length);
+        const randomStudent = students[index];
+        randomStudentDiv.innerText = randomStudent.name;
+        randomStudentDiv.append(generateProfileAnchor(randomStudent));
+    }
+
+    function generateProfileAnchor(randomStudent) {
+        const anchor = document.createElement('a');
+        anchor.href = `/students/${randomStudent._id}`;
+        anchor.innerText = '=> Go to profile';
+        anchor.target = '_blank';
+        anchor.style.textDecoration = 'none';
+        anchor.style.color = '#007bff';
+        return anchor;
+    }

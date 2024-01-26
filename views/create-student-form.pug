@@ -1,11 +1,11 @@
-h1 Student creation
+h1(style="font-size: 24px; color: #333;") Student creation
 
-form(action="/students", method="post")
-    label(for="name") Student name:
-    input(type="text", id="name", name="name", required)
+form(action="/students", method="post", style="margin-top: 20px;")
 
-    input(type="submit", value="Submit")
+    label(for="name", style="display: block; margin-bottom: 5px;") Student name:
+    input(type="text", id="name", name="name", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
 
+    input(type="submit", value="Submit", style="background-color: #28a745; color: #fff; padding: 10px; border: none; cursor: pointer;")
 
-hl
-a(href="/") Home page
+hl(style="margin-top: 20px;")
+a(href="/", style="text-decoration: none; color: #007bff;") Home page

@@ -1,24 +1,23 @@
-h1 Homework creation
+h1(style="font-size: 24px; color: #333;") Homework creation
 
-form(action="/homeworks", method="post")
+form(action="/homeworks", method="post", style="margin-top: 20px;")
 
-    label(for="number") Homework number:
-    input(type="number", id="number", name="number", required)
-
-    br
-
-    label(for="title") Homework title:
-    input(type="text", id="title", name="title", required)
+    label(for="number", style="display: block; margin-bottom: 5px;") Homework number:
+    input(type="number", id="number", name="number", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
 
     br
 
-    label(for="description") Homework description:
-    input(type="text", id="description", name="description", required)
+    label(for="title", style="display: block; margin-bottom: 5px;") Homework title:
+    input(type="text", id="title", name="title", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
 
     br
 
-    input(type="submit", value="Submit")
+    label(for="description", style="display: block; margin-bottom: 5px;") Homework description:
+    input(type="text", id="description", name="description", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
 
+    br
 
-hl
-a(href="/") Home page
+    input(type="submit", value="Submit", style="background-color: #28a745; color: #fff; padding: 10px; border: none; cursor: pointer;")
+
+hl(style="margin-top: 20px;")
+a(href="/", style="text-decoration: none; color: #007bff;") Home page

@@ -5,7 +5,7 @@ const HomeworkSchema = new Schema({
     number: Number,
     title: String,
     description: String,
-    date: Date
+    endDate: Date
 });
 
 const Homework = mongoose.model('Homework', HomeworkSchema);

@@ -1,0 +1,28 @@
+h1(style="font-size: 24px; color: #333;") Homework creation
+
+form(action=`/students/${studentId}/submission`, method="post", style="margin-top: 20px;")
+
+    label(for="homeworkTitle", style="display: block; margin-bottom: 5px;") Homework title:
+    input(type="text", id="homeworkTitle", name="homeworkTitle", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
+
+    br
+
+    label(for="description", style="display: block; margin-bottom: 5px;") Homework description:
+    input(type="text", id="description", name="description", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
+
+    br
+
+    label(for="answered", style="display: block; margin-bottom: 5px;") Homework answered:
+    input(type="checkbox", id="answered", name="answered", style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
+
+    br
+
+    label(for="date", style="display: block; margin-bottom: 5px;") Submission date:
+    input(type="date", id="date", name="date", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
+
+    br
+
+    input(type="submit", value="Submit", style="background-color: #28a745; color: #fff; padding: 10px; border: none; cursor: pointer;")
+
+hl(style="margin-top: 20px;")
+a(href="/", style="text-decoration: none; color: #007bff;") Home page
