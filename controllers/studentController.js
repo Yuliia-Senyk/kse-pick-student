@@ -15,7 +15,6 @@ async function getStudentByIdController(req, res) {
     const studentId = req.params.id;
     try {
         const student = await Student.findOne({ _id: studentId });
-        console.log(student); // Log users to the console
         res.render('student-profile', { student: student });
     } catch (error) {
         console.error('Error fetching users:', error);

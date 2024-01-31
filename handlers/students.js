@@ -6,11 +6,11 @@ function createStudent(name) {
     return student.save();
 }
 
-async function addStudentSubmission(studentId, { homeworkTitle, description, date, answered }) {
+async function addStudentSubmission(studentId, { homeworkTitle, remarks, date, answered }) {
     const student = await Student.findOne({ _id: studentId });
     const submission = new Submission({
         homeworkTitle,
-        description,
+        remarks,
         date,
         answered: answered === 'on'
     });

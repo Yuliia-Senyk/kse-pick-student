@@ -5,12 +5,8 @@ async function getHomePage (req, res) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
-function getInfoPage (req, res) {
-    res.send('getInfoPage sent');
-};
 
 module.exports = {
-    getInfoPage,
     getHomePage
 };
 

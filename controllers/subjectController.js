@@ -1,7 +1,7 @@
 const { createHomework } = require("../handlers/homeworks");
 const { Homework } = require("../models");
 
-async function getHomeworkListController(req, res) {
+async function getSubjectListController(req, res) {
     try {
         const homeworks = await Homework.find();
         res.render('homeworks', {homeworks});
@@ -11,15 +11,15 @@ async function getHomeworkListController(req, res) {
     }
 }
 
-function getHomeworkController(req, res) {
+function getSubjectController(req, res) {
     res.render('Homework by Id');
 }
 
-function getHomeworkFormController(req, res) {
+function getSubjectFormController(req, res) {
     res.render('create-homework-form');
 }
 
-function postHomeworkController(req, res) {
+function postSubjectController(req, res) {
     const number = req.body.number;
     const title = req.body.title;
     const description = req.body.description;
@@ -28,11 +28,11 @@ function postHomeworkController(req, res) {
         .catch(() =>  res.send('error, homework NOT SAVED'));
 }
 
-function putHomeworkController(req, res) {
+function putSubjectController(req, res) {
     res.send('putHomeworkController');
 }
 
-function deleteHomeworkController(req, res) {
+function deleteSubjectController(req, res) {
     res.send('deleteHomeworkController');
 }
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const homeworkController = require("../controllers/homeworkController");
+const homeworkController = require("../controllers/subjectController");
 
 router.get('/', homeworkController.getHomeworkListController);
 router.get('/new', homeworkController.getHomeworkFormController);

@@ -6,7 +6,7 @@ const SubmissionSchema = new Schema({
     homeworkTitle: String,
     date: Date,
     answered: Boolean,
-    description: String,
+    remarks: String,
 });
 
 const Submission = mongoose.model('Submission', SubmissionSchema);
