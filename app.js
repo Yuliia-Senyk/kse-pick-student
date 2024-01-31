@@ -3,14 +3,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('./mongooseConnection');
 const PORT = require('./configs/port');
 const routes = require('./routes');
-const cookies = require("cookie-parser");
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 app.set('views', 'views');
-app.use(cookies());
 
 mongoose.set('strictQuery', false);
 
