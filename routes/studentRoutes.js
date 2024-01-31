@@ -9,6 +9,7 @@ router.get('/:id', studentController.getStudentByIdController);
 router.get('/:id/submissionForm', studentController.getStudentSubmissionForm);
 router.post('/', studentController.postStudentController);
 router.post('/:id/submission', studentController.postStudentSubmission);
+router.get('/:id/delete/:submissionId', studentController.deleteStudentSubmission);
 router.put('/:id', studentController.putStudentController);
 router.delete('/:id', studentController.deleteStudentController);
 

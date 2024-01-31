@@ -6,6 +6,7 @@ const SubmissionSchema = new Schema({
     homeworkTitle: String,
     date: Date,
     answered: Boolean,
+    id: String,
     remarks: String,
 });
 

@@ -4,6 +4,7 @@ const SubmissionSchema = require("./submission").SubmissionSchema;
 
 const StudentSchema =  new Schema({
     name: String,
+    lastname: String,
     homeworks: [SubmissionSchema],
 });
 

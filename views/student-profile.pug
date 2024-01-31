@@ -1,13 +1,14 @@
 header(style="padding: 10px; background-color: #f8f9fa;")
 
     h2(style="font-size: 24px; color: #333;") Student #{student.name}
+    h2(style="font-size: 24px; color: #333;") Student #{student.lastname}
     h3(style="font-size: 18px; color: #555;") Student ID: #{student._id}
 
-    button(id="deleteStudent", style="padding: 8px; background-color: #dc3545; color: #fff; border: none; cursor: pointer; margin-top: 10px;") Delete student
+    button(id="deleteStudent", disabled=true style="padding: 8px; background-color: #dc3545; color: #fff; border: none; cursor: pointer; margin-top: 10px;") Delete student
 
 section(style="margin-top: 20px;")
 
-    h2(style="font-size: 20px; color: #333;") Homeworks
+    h2(style="font-size: 20px; color: #333;") Homework checks
 
     a(href=`/students/${student._id}/submissionForm`, style="padding: 8px; background-color: #28a745; color: #fff; border: none; cursor: pointer;") Add
 
@@ -18,14 +19,17 @@ section(style="margin-top: 20px;")
                 th(style="padding: 10px; text-align: left;") Remarks
                 th(style="padding: 10px; text-align: left;") Answered
                 th(style="padding: 10px; text-align: left;") Date
+                th(style="padding: 10px; text-align: left;") Remove
             each hw in student.homeworks
                 tr(style="border-bottom: 1px solid #ddd;")
                     td(style="padding: 10px;")= hw.homeworkTitle
                     td(style="padding: 10px;")= hw.remarks
                     td(style="padding: 10px;")= hw.answered
                     td(style="padding: 10px;")= hw.date
+                    td(style="padding: 10px;")
+                        a(href=`/students/${student._id}/delete/${hw.id}`, style="padding: 8px; background-color: #28a745; color: #fff; border: none; cursor: pointer;") Delete
     else
-        span(style="color: #888;") No homeworks
+        span(style="color: #888;") No homeworks checked
 
 hl(style="margin-top: 20px;")
 a(href="/", style="text-decoration: none; color: #007bff;") Home page

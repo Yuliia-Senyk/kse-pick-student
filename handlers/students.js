@@ -1,15 +1,17 @@
 const Student = require('../models/student').Student;
 const { Submission } = require('../models/submission');
 
-function createStudent(name) {
-    const student = new Student({ name: name, homeworks: [] });
+function createStudent(name, lastname) {
+    const student = new Student({ name: name, lastname: lastname, homeworks: [] });
     return student.save();
 }
 
-async function addStudentSubmission(studentId, { homeworkTitle, remarks, date, answered }) {
+async function addStudentSubmission(studentId, { homework, remarks, date, answered }) {
+    let hw = JSON.parse(homework)
     const student = await Student.findOne({ _id: studentId });
     const submission = new Submission({
-        homeworkTitle,
+        id: hw._id,
+        homeworkTitle: hw.title,
         remarks,
         date,
         answered: answered === 'on'
@@ -18,7 +20,15 @@ async function addStudentSubmission(studentId, { homeworkTitle, remarks, date, a
     return student.save();
 }
 
+
+async function deleteSubmission(studentId, submissionId) {
+    const student = await Student.findOne({ _id: studentId });
+    student.homeworks = student.homeworks.filter(i => i.id !== submissionId);
+    return student.save();
+}
+
 module.exports = {
     createStudent,
     addStudentSubmission,
+    deleteSubmission
 };

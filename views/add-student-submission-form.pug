@@ -2,9 +2,9 @@ h1(style="font-size: 24px; color: #333;") Homework creation
 
 form(action=`/students/${studentId}/submission`, method="post", style="margin-top: 20px;")
 
-    label(for="homeworkTitle", style="display: block; margin-bottom: 5px;") Homework title:
-    input(type="text", id="homeworkTitle", name="homeworkTitle", required, style="width: 100%; padding: 8px; margin-bottom: 10px; box-sizing: border-box;")
-
+    select(name="homework" required style="width: 100%; padding: 8px; margin-bottom: 10px; font-size: 16px box-sizing: border-box;")
+        each item in homeworks
+            option(value=item style="font-size: 16px;")= item.title
     br
 
     label(for="remarks", style="display: block; margin-bottom: 5px;") Homework remarks:
