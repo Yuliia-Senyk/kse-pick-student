@@ -37,10 +37,10 @@ function deleteSubjectController(req, res) {
 }
 
 module.exports = {
-    getHomeworkListController,
-    getHomeworkController,
-    postHomeworkController,
-    putHomeworkController,
-    deleteHomeworkController,
-    getHomeworkFormController,
+    getSubjectListController,
+    getSubjectController,
+    getSubjectFormController,
+    putSubjectController,
+    deleteSubjectController,
+    postSubjectController,
 };

@@ -3,11 +3,11 @@ const router = express.Router();
 
 const homeworkController = require("../controllers/subjectController");
 
-router.get('/', homeworkController.getHomeworkListController);
-router.get('/new', homeworkController.getHomeworkFormController);
-router.get('/:id', homeworkController.getHomeworkController);
-router.post('/', homeworkController.postHomeworkController);
-router.get('/:id', homeworkController.putHomeworkController);
-router.delete('/', homeworkController.deleteHomeworkController);
+router.get('/', homeworkController.getSubjectListController);
+router.get('/new', homeworkController.getSubjectController);
+router.get('/:id', homeworkController.getSubjectFormController);
+router.post('/', homeworkController.postSubjectController);
+router.get('/:id', homeworkController.putSubjectController);
+router.delete('/', homeworkController.deleteSubjectController);
 
 module.exports = router;
