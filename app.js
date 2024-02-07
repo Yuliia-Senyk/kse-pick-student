@@ -48,6 +48,6 @@ wss.on('connection', (ws) => {
     });
 });
 const WS_PORT = 3000;
-server.listen(PORT, () => {
-    console.log(`WS Server listening on port ${PORT}`);
+server.listen(WS_PORT, () => {
+    console.log(`WS Server listening on port ${WS_PORT}`);
 });
