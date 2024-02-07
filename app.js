@@ -1,5 +1,4 @@
 const express = require('express');
-const http = require('http');
 const WebSocket = require('ws');
 const bodyParser = require('body-parser');
 const mongoose = require('./mongooseConnection');
@@ -21,12 +20,10 @@ app.use('/chat', routes.chatRoutes);
 app.use('/*', routes.homeRoutes);
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-
-const server = http.createServer(app);
 const wss = new WebSocket.Server({ server: server });
 
 wss.on('connection', (ws) => {
@@ -46,8 +43,4 @@ wss.on('connection', (ws) => {
     ws.on('close', () => {
         console.log('Client disconnected');
     });
-});
-const WS_PORT = 3000;
-server.listen(WS_PORT, () => {
-    console.log(`WS Server listening on port ${WS_PORT}`);
 });
