@@ -4,8 +4,11 @@ const bodyParser = require('body-parser');
 const mongoose = require('./mongooseConnection');
 const PORT = require('./configs/port');
 const routes = require('./routes');
+require('dotenv').config();
 
 const app = express();
+
+app.locals.env = process.env;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
@@ -29,7 +32,7 @@ const wss = new WebSocket.Server({ server: server });
 wss.on('connection', (ws) => {
     console.log('Client connected');
 
-    ws.send('Welcome to the WebSocket server!');
+    ws.send(Buffer.from('Welcome to the WebSocket server!', 'utf-8'));
 
     ws.on('message', (message) => {
         console.log(`Received message: ${message}`);

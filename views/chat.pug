@@ -10,7 +10,7 @@ html(lang="en")
         ul#chatMessages
 
         script.
-            const socket = new WebSocket('ws://localhost:3000');
+            const socket = new WebSocket('#{env.WS_URL}');
 
             socket.addEventListener('message', (event) => {
                 event.data.text()
