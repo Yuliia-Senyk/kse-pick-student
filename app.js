@@ -25,14 +25,13 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
-
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server: server });
 
 wss.on('connection', (ws) => {
     console.log('Client connected');
 
-    ws.send('Welcome to the WebSocket server!');
+    ws.send('Welcome to the WebSocket server from node js!');
 
     ws.on('message', (message) => {
         console.log(`Received message: ${message}`);
@@ -43,11 +42,20 @@ wss.on('connection', (ws) => {
         });
     });
 
+    ws.on('open', () => {
+    console.log('WebSocket connection opened');
+    ws.send(JSON.stringify({ method: 'subscribed'}));
+});
+
+
     ws.on('close', () => {
         console.log('Client disconnected');
     });
 });
+
 const WS_PORT = 3000;
 server.listen(WS_PORT, () => {
     console.log(`WS Server listening on port ${WS_PORT}`);
 });
+
+
