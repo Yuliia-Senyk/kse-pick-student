@@ -18,6 +18,8 @@ app.use('/', routes.homeRoutes);
 app.use('/students', routes.studentRoutes);
 app.use('/homeworks', routes.homeworkRoutes);
 app.use('/chat', routes.chatRoutes);
+app.use('/db', routes.db);
+app.use('/django', routes.django);
 app.use('/*', routes.homeRoutes);
 
 
