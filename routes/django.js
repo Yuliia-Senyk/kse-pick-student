@@ -7,6 +7,7 @@ function sendJsonOnGet(req, res) {
 }
 
 function sendJsonOnPost(req, res) {
+    console.log('req.body', req.body);
     res.json({'msg': 'message from express on POST req', ...req.body});
 }
 
@@ -35,7 +36,7 @@ async function redirectPostReqToDjango(req, res) {
 
 
 router.get('', sendJsonOnGet);
-router.post('/post', sendJsonOnPost);
+router.post('', sendJsonOnPost);
 
 
 
